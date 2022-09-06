@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(90deg, rgb(233,55,10,0.7), rgb(233,55,10,0.2));
+}
+
+img {
+    height: 90%;
+    min-width: none;
+    overflow: hidden;
+}
+
+.inner-btn-menu {
+  display: flex;
+  width: 100%;
+}
+#select-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2px;
+    align-content: center;
+    justify-content: center;
+    gap: 6px;
+}
+#select-container .img-box {
+    display: flex;
+    width: 23%;
+    max-height: 31vh;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.selected {
+  box-shadow: 0 0 15px red;
+  border-radius: 15%;
+}
+#answer {
+    display: flex;
+    height: 250px;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    margin: 0;
+    background: linear-gradient(90deg, rgb(233,55,10,0.8), rgb(233,55,10,0.4));
+    opacity: 96%;
+    border: 3px solid black;
+    border-radius: 5%;
+}
+#cards-container {
+  display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.flip-card { 
+  display: flex;
+  background-color: transparent;
+    width: 21vw;
+    height: 32vh;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card-front, .flip-card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-front img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .flip-card-back img {
+    width: 80%;
+    overflow: hidden;
+  }
+
+  .flip-card-back {
+    background-color: white;
+    border-radius: 5%;
+    transform: rotatey(180deg);
+  }
