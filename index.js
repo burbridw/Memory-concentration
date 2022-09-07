@@ -40,8 +40,8 @@ colorsBtn.addEventListener("click",function(){
 
 sportsBtn.addEventListener("click",function() {
     if (selectionOpen === false) {
-        renderSelect("select-container", sportsArr)
-        selectionOpen = true
+    renderSelect("select-container", sportsArr)
+    selectionOpen = true
     } 
 })
 
@@ -53,9 +53,9 @@ function renderGame(targetDiv, arr){
     let currentDiv = document.getElementById(targetDiv)
     currentDiv.innerHTML = ""
     for ( let i = 0; i < displayArr.length; i++) {
-        currentDiv.innerHTML += `
-        <div class="flip-card">
-          <div class="flip-card-inner unflipped">
+      currentDiv.innerHTML += `
+      <div class="flip-card">
+            <div class="flip-card-inner unflipped">
             <div class="flip-card-front">
               <img src="./images/cards-back.png">
             </div>
@@ -83,7 +83,7 @@ function renderGame(targetDiv, arr){
 
 function renderSelect(targetDiv, arr){
     let currentDiv = document.getElementById(targetDiv)
-    currentDiv.innerHTML = `<div class="inner-btn-menu"><button id="allcolors" onClick="selectAll()">Select All</button><button id="clearselection">Clear Selection</button><button id="closewindow" onClick="passSelect()">Go Back</button></div>`
+    currentDiv.innerHTML = `<div class="inner-btn-menu"><button id="allcolors" onClick="selectAll()">Select All</button><button id="clearselection" onClick="selectClear()">Clear Selection</button><button id="closewindow" onClick="passSelect()">Go Back</button></div>`
     for ( let i = 0; i < arr.length; i++) {
     currentDiv.innerHTML += `<div class="img-box"><img class="select-img unselected" src="${arr[i]}"></div>`
     imgList = document.querySelectorAll(`.select-img`)
@@ -115,6 +115,16 @@ function selectAll() {
         selectArr.push(currentImg)
         img.classList.add("selected")
         img.classList.remove("unselected")
+    })
+}
+
+function selectClear() {
+    selectArr = []
+    imgList = document.querySelectorAll(`.select-img`)
+    imgList.forEach( (img) => {
+        let currentImg = img.getAttribute("src")
+        img.classList.remove("selected")
+        img.classList.add("unselected")
     })
 }
 
