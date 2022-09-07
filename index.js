@@ -32,6 +32,7 @@ renderBtn.addEventListener("click", function(){
 })
 
 colorsBtn.addEventListener("click",function(){
+    reSelect(colorArr)
     if (selectionOpen === false) {
     renderSelect("select-container", colorArr) 
     selectionOpen = true
@@ -39,11 +40,17 @@ colorsBtn.addEventListener("click",function(){
 })
 
 sportsBtn.addEventListener("click",function() {
+    reSelect(sportsArr)
     if (selectionOpen === false) {
     renderSelect("select-container", sportsArr)
     selectionOpen = true
     } 
 })
+
+function reSelect(arr) {
+    selectArr = activeArr.filter( (x) => arr.includes(x) )
+    activeArr = activeArr.filter( (x) => !arr.includes(x) )
+}
 
 function renderGame(targetDiv, arr){
     displayArr = arr.sort( () => { return 0.5 - Math.random() } )
@@ -88,6 +95,11 @@ function renderSelect(targetDiv, arr){
     currentDiv.innerHTML += `<div class="img-box"><img class="select-img unselected" src="${arr[i]}"></div>`
     imgList = document.querySelectorAll(`.select-img`)
     imgList.forEach( (img) => {
+        let reselectImg = img.getAttribute("src")
+        if (selectArr.includes(reselectImg) ) {
+            img.classList.add("selected")
+            img.classList.remove("unselected")
+        }
         img.addEventListener("click",function() {
             let currentImg = img.getAttribute("src")
             if ( img.classList.contains("unselected") ) {
@@ -104,7 +116,7 @@ function renderSelect(targetDiv, arr){
             }
         }) 
     })
-    }
+    } 
 }
 
 function selectAll() {
@@ -131,7 +143,6 @@ function selectClear() {
 function passSelect() {
     activeArr = activeArr.concat(selectArr)
     selectArr = []
-    console.log(activeArr)
     let currenterDiv = document.getElementById("select-container")
     currenterDiv.innerHTML = ""
     selectionOpen = false
@@ -145,6 +156,7 @@ clearBtn.addEventListener("click",function(){
     activeArr = []
     displayArr = []
     selectArr = []
+    selectionOpen = false
     document.querySelectorAll(`.toggleOn`).forEach( (x) => {
     x.className = "toggleOff"
     })
