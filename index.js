@@ -18,6 +18,15 @@ const instrumentsArr = ["./images/instruments/img1.png","./images/instruments/im
 const foodsArr = ["./images/foods/img1.png","./images/foods/img2.png", "./images/foods/img3.png", "./images/foods/img4.png", "./images/foods/img5.png", "./images/foods/img6.png", "./images/foods/img7.png", "./images/foods/img8.png", "./images/foods/img9.png", "./images/foods/img10.png", "./images/foods/img11.png", "./images/foods/img12.png", "./images/foods/img13.png", "./images/foods/img14.png", "./images/foods/img15.png", "./images/foods/img16.png", "./images/foods/img17.png", "./images/foods/img18.png", "./images/foods/img19.png"]
 const dessertsArr = ["./images/desserts/img1.png","./images/desserts/img2.png", "./images/desserts/img3.png", "./images/desserts/img4.png", "./images/desserts/img5.png", "./images/desserts/img6.png", "./images/desserts/img7.png", "./images/desserts/img8.png"]
 const drinksArr = ["./images/drinks/img1.png","./images/drinks/img2.png", "./images/drinks/img3.png", "./images/drinks/img4.png", "./images/drinks/img5.png", "./images/drinks/img6.png", "./images/drinks/img7.png", "./images/drinks/img8.png"]
+const fruitsvegetablesArr = ["./images/fruitsvegetables/img1.png","./images/fruitsvegetables/img2.png", "./images/fruitsvegetables/img3.png", "./images/fruitsvegetables/img4.png", "./images/fruitsvegetables/img5.png", "./images/fruitsvegetables/img6.png", "./images/fruitsvegetables/img7.png", "./images/fruitsvegetables/img8.png", "./images/fruitsvegetables/img9.png", "./images/fruitsvegetables/img10.png", "./images/fruitsvegetables/img11.png", "./images/fruitsvegetables/img12.png", "./images/fruitsvegetables/img13.png", "./images/fruitsvegetables/img14.png", "./images/fruitsvegetables/img15.png", "./images/fruitsvegetables/img16.png", "./images/fruitsvegetables/img17.png", "./images/fruitsvegetables/img18.png", "./images/fruitsvegetables/img19.png", "./images/fruitsvegetables/img20.png", "./images/fruitsvegetables/img21.png", "./images/fruitsvegetables/img22.png", "./images/fruitsvegetables/img23.png", "./images/fruitsvegetables/img24.png", "./images/fruitsvegetables/img25.png", "./images/fruitsvegetables/img26.png", "./images/fruitsvegetables/img27.png"]
+const ingredientsArr = ["./images/ingredients/img1.png","./images/ingredients/img2.png", "./images/ingredients/img3.png", "./images/ingredients/img4.png", "./images/ingredients/img5.png", "./images/ingredients/img6.png", "./images/ingredients/img7.png", "./images/ingredients/img8.png", "./images/ingredients/img9.png", "./images/ingredients/img10.png"]
+const mealsArr = ["./images/meals/img1.png","./images/meals/img2.png", "./images/meals/img3.png"]
+const tastesArr = ["./images/tastes/img1.png","./images/tastes/img2.png", "./images/tastes/img3.png", "./images/tastes/img4.png", "./images/tastes/img5.png", "./images/tastes/img6.png", "./images/tastes/img7.png", "./images/tastes/img8.png", "./images/tastes/img9.png", "./images/tastes/img10.png"]
+const animalsArr = ["./images/animals/img1.png","./images/animals/img2.png", "./images/animals/img3.png", "./images/animals/img4.png", "./images/animals/img5.png", "./images/animals/img6.png", "./images/animals/img7.png", "./images/animals/img8.png", "./images/animals/img9.png", "./images/animals/img10.png", "./images/animals/img11.png", "./images/animals/img12.png", "./images/animals/img13.png", "./images/animals/img14.png", "./images/animals/img15.png", "./images/animals/img16.png", "./images/animals/img17.png", "./images/animals/img18.png", "./images/animals/img19.png", "./images/animals/img20.png", "./images/animals/img21.png", "./images/animals/img22.png", "./images/animals/img23.png", "./images/animals/img24.png"]
+const seaanimalsArr = ["./images/seaanimals/img1.png","./images/seaanimals/img2.png", "./images/seaanimals/img3.png", "./images/seaanimals/img4.png", "./images/seaanimals/img5.png", "./images/seaanimals/img6.png", "./images/seaanimals/img7.png", "./images/seaanimals/img8.png"]
+const bugsArr = ["./images/bugs/img1.png","./images/bugs/img2.png", "./images/bugs/img3.png", "./images/bugs/img4.png"]
+const natureArr = ["./images/nature/img1.png","./images/nature/img2.png", "./images/nature/img3.png", "./images/nature/img4.png", "./images/nature/img5.png", "./images/nature/img6.png", "./images/nature/img7.png", "./images/nature/img8.png", "./images/nature/img9.png", "./images/nature/img10.png", "./images/nature/img11.png", "./images/nature/img12.png"]
+const monthsArr = ["./images/months/img1.png","./images/months/img2.png", "./images/months/img3.png", "./images/months/img4.png", "./images/months/img5.png", "./images/months/img6.png", "./images/months/img7.png", "./images/months/img8.png", "./images/months/img9.png", "./images/months/img10.png", "./images/months/img11.png", "./images/months/img12.png"]
 
 const feelingsBtn = document.getElementById("feelings")
 const weatherBtn = document.getElementById("weather")
@@ -28,6 +37,13 @@ const foodsBtn = document.getElementById("foods")
 const drinksBtn = document.getElementById("drinks")
 const dessertsBtn = document.getElementById("desserts")
 const instrumentsBtn = document.getElementById("instruments")
+const mealsBtn = document.getElementById("meals")
+const tastesBtn = document.getElementById("tastes")
+const animalsBtn = document.getElementById("animals")
+const seaanimalsBtn = document.getElementById("seaanimals")
+const bugsBtn = document.getElementById("bugs")
+const natureBtn = document.getElementById("nature")
+const monthsBtn = document.getElementById("months")
 
 const quickStart = document.getElementById("quick-start")
 const clearBtn = document.getElementById("clear")
@@ -42,6 +58,13 @@ instrumentsBtn.addEventListener("click",() => beginSelection(instrumentsArr))
 foodsBtn.addEventListener("click",() => beginSelection(foodsArr))
 dessertsBtn.addEventListener("click",() => beginSelection(dessertsArr))
 drinksBtn.addEventListener("click",() => beginSelection(drinksArr))
+mealsBtn.addEventListener("click",() => beginSelection(mealsArr))
+tastesBtn.addEventListener("click",() => beginSelection(tastesArr))
+animalsBtn.addEventListener("click",() => beginSelection(animalsArr))
+seaanimalsBtn.addEventListener("click",() => beginSelection(seaanimalsArr))
+bugsBtn.addEventListener("click",() => beginSelection(bugsArr))
+natureBtn.addEventListener("click",() => beginSelection(natureArr))
+monthsBtn.addEventListener("click",() => beginSelection(monthsArr))
 
 function beginSelection(arr) {
     if (!selectionOpen) {

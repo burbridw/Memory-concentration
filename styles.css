@@ -3,7 +3,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, rgba(233, 181, 10, 0.8), rgba(233, 181, 10, 0.4));
+    background: linear-gradient(90deg, rgba(10, 181, 233, 0.8), rgba(233, 218, 10, 0.4));
 }
 
 img {
@@ -26,7 +26,7 @@ img {
   background-color: transparent;
   border-radius: 5%;
   font-family: Tahoma, sans-serif;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 #game-buttons button:hover {
   background-color: yellow;
@@ -46,13 +46,13 @@ img {
 }
 #topic-buttons button {
   width: 100%;
-  max-width: 200px;
+  max-width: 240px;
   height: 3rem;
   background-color: transparent;
   border: 1px solid black;
   border-radius: 5%;
   font-family: Tahoma, sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 #topic-buttons button:hover {
   background-color: yellow;
