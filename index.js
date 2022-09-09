@@ -45,9 +45,15 @@ drinksBtn.addEventListener("click",() => beginSelection(drinksArr))
 
 function beginSelection(arr) {
     if (!selectionOpen) {
+        reSelect(arr)
         renderSelect("select-container", arr)
         selectionOpen = true
     }
+}
+
+function reSelect(arr) {
+    selectArr = activeArr.filter( (x) => arr.includes(x) )
+    activeArr = activeArr.filter( (x) => !arr.includes(x) )
 }
 
 function renderSelect(targetDiv, arr){
@@ -59,6 +65,11 @@ function renderSelect(targetDiv, arr){
     currentDiv.innerHTML += `<div class="img-box"><img class="select-img unselected" src="${arr[i]}"></div>`
     imgList = document.querySelectorAll(`.select-img`)
     imgList.forEach( (img) => {
+        let reselectImg = img.getAttribute("src")
+        if (selectArr.includes(reselectImg) ) {
+            img.classList.add("selected")
+            img.classList.remove("unselected")
+        }
         img.addEventListener("click",function() {
             let currentImg = img.getAttribute("src")
             if ( img.classList.contains("unselected") ) {
@@ -75,7 +86,7 @@ function renderSelect(targetDiv, arr){
             }
         }) 
     })
-    }
+    } 
 }
 
 function selectAll() {
@@ -102,7 +113,6 @@ function selectClear() {
 function passSelect() {
     activeArr = activeArr.concat(selectArr)
     selectArr = []
-    console.log(activeArr)
     let currenterDiv = document.getElementById("select-container")
     currenterDiv.innerHTML = ""
     selectionOpen = false
