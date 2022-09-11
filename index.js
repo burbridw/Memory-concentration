@@ -27,6 +27,11 @@ const seaanimalsArr = ["./images/seaanimals/img1.png","./images/seaanimals/img2.
 const bugsArr = ["./images/bugs/img1.png","./images/bugs/img2.png", "./images/bugs/img3.png", "./images/bugs/img4.png"]
 const natureArr = ["./images/nature/img1.png","./images/nature/img2.png", "./images/nature/img3.png", "./images/nature/img4.png", "./images/nature/img5.png", "./images/nature/img6.png", "./images/nature/img7.png", "./images/nature/img8.png", "./images/nature/img9.png", "./images/nature/img10.png", "./images/nature/img11.png", "./images/nature/img12.png"]
 const monthsArr = ["./images/months/img1.png","./images/months/img2.png", "./images/months/img3.png", "./images/months/img4.png", "./images/months/img5.png", "./images/months/img6.png", "./images/months/img7.png", "./images/months/img8.png", "./images/months/img9.png", "./images/months/img10.png", "./images/months/img11.png", "./images/months/img12.png"]
+const seasonsArr = ["./images/seasons/img1.png","./images/seasons/img2.png", "./images/seasons/img3.png", "./images/seasons/img4.png"]
+const timesofdayArr = ["./images/timesofday/img1.png","./images/timesofday/img2.png", "./images/timesofday/img3.png", "./images/timesofday/img4.png"]
+const daysArr = ["./images/days/img1.png","./images/days/img2.png", "./images/days/img3.png", "./images/days/img4.png","./images/days/img2.png", "./images/days/img3.png", "./images/days/img4.png"]
+const countriesArr = ["./images/countries/img1.png","./images/countries/img2.png", "./images/countries/img3.png", "./images/countries/img4.png", "./images/countries/img5.png", "./images/countries/img6.png", "./images/countries/img7.png", "./images/countries/img8.png", "./images/countries/img9.png", "./images/countries/img10.png", "./images/countries/img11.png", "./images/countries/img12.png", "./images/countries/img13.png", "./images/countries/img14.png", "./images/countries/img15.png", "./images/countries/img16.png", "./images/countries/img17.png", "./images/countries/img18.png", "./images/countries/img19.png", "./images/countries/img20.png", "./images/countries/img21.png", "./images/countries/img22.png", "./images/countries/img23.png", "./images/countries/img24.png", "./images/countries/img25.png", "./images/countries/img26.png"]
+const familyArr = ["./images/family/img1.png","./images/family/img2.png", "./images/family/img3.png", "./images/family/img4.png", "./images/family/img5.png", "./images/family/img6.png", "./images/family/img7.png"]
 
 const feelingsBtn = document.getElementById("feelings")
 const weatherBtn = document.getElementById("weather")
@@ -36,6 +41,8 @@ const shapesBtn = document.getElementById("shapes")
 const foodsBtn = document.getElementById("foods")
 const drinksBtn = document.getElementById("drinks")
 const dessertsBtn = document.getElementById("desserts")
+const fruitsvegetablesBtn = document.getElementById("fruitsvegetables")
+const ingredientsBtn = document.getElementById("ingredients")
 const instrumentsBtn = document.getElementById("instruments")
 const mealsBtn = document.getElementById("meals")
 const tastesBtn = document.getElementById("tastes")
@@ -44,6 +51,11 @@ const seaanimalsBtn = document.getElementById("seaanimals")
 const bugsBtn = document.getElementById("bugs")
 const natureBtn = document.getElementById("nature")
 const monthsBtn = document.getElementById("months")
+const seasonsBtn = document.getElementById("seasons")
+const timesofdayBtn = document.getElementById("timesofday")
+const daysBtn = document.getElementById("days")
+const countriesBtn = document.getElementById("countries")
+const familyBtn = document.getElementById("family")
 
 const quickStart = document.getElementById("quick-start")
 const clearBtn = document.getElementById("clear")
@@ -58,6 +70,8 @@ instrumentsBtn.addEventListener("click",() => beginSelection(instrumentsArr))
 foodsBtn.addEventListener("click",() => beginSelection(foodsArr))
 dessertsBtn.addEventListener("click",() => beginSelection(dessertsArr))
 drinksBtn.addEventListener("click",() => beginSelection(drinksArr))
+fruitsvegetablesBtn.addEventListener("click",() => beginSelection(fruitsvegetablesArr))
+ingredientsBtn.addEventListener("click",() => beginSelection(ingredientsArr))
 mealsBtn.addEventListener("click",() => beginSelection(mealsArr))
 tastesBtn.addEventListener("click",() => beginSelection(tastesArr))
 animalsBtn.addEventListener("click",() => beginSelection(animalsArr))
@@ -65,6 +79,12 @@ seaanimalsBtn.addEventListener("click",() => beginSelection(seaanimalsArr))
 bugsBtn.addEventListener("click",() => beginSelection(bugsArr))
 natureBtn.addEventListener("click",() => beginSelection(natureArr))
 monthsBtn.addEventListener("click",() => beginSelection(monthsArr))
+seasonsBtn.addEventListener("click",() => beginSelection(seasonsArr))
+timesofdayBtn.addEventListener("click",() => beginSelection(timesofdayArr))
+daysBtn.addEventListener("click",() => beginSelection(daysArr))
+countriesBtn.addEventListener("click",() => beginSelection(countriesArr))
+familyBtn.addEventListener("click",() => beginSelection(familyArr))
+
 
 function beginSelection(arr) {
     if (!selectionOpen) {
