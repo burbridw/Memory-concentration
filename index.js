@@ -156,6 +156,7 @@ function renderGame(targetDiv, arr){
     let currentDiv = document.getElementById(targetDiv)
     currentDiv.innerHTML = ""
     topicBtnDisplay.className ="hide-me"
+    gameBtnDisplay.className = "conceal-menu"
     for ( let i = 0; i < displayArr.length; i++) {
       currentDiv.innerHTML += `
       <div class="flip-card">
@@ -194,6 +195,7 @@ clearBtn.addEventListener("click",function(){
     displayArr = []
     selectArr = []
     topicBtnDisplay.className = ""
+    gameBtnDisplay.classList.remove("conceal-menu")
     document.querySelectorAll(`.toggleOn`).forEach( (x) => {
     x.className = "toggleOff"
     })
