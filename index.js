@@ -32,6 +32,8 @@ const timesofdayArr = ["./images/timesofday/img1.png","./images/timesofday/img2.
 const daysArr = ["./images/days/img1.png","./images/days/img2.png", "./images/days/img3.png", "./images/days/img4.png","./images/days/img2.png", "./images/days/img3.png", "./images/days/img4.png"]
 const countriesArr = ["./images/countries/img1.png","./images/countries/img2.png", "./images/countries/img3.png", "./images/countries/img4.png", "./images/countries/img5.png", "./images/countries/img6.png", "./images/countries/img7.png", "./images/countries/img8.png", "./images/countries/img9.png", "./images/countries/img10.png", "./images/countries/img11.png", "./images/countries/img12.png", "./images/countries/img13.png", "./images/countries/img14.png", "./images/countries/img15.png", "./images/countries/img16.png", "./images/countries/img17.png", "./images/countries/img18.png", "./images/countries/img19.png", "./images/countries/img20.png", "./images/countries/img21.png", "./images/countries/img22.png", "./images/countries/img23.png", "./images/countries/img24.png", "./images/countries/img25.png", "./images/countries/img26.png"]
 const familyArr = ["./images/family/img1.png","./images/family/img2.png", "./images/family/img3.png", "./images/family/img4.png", "./images/family/img5.png", "./images/family/img6.png", "./images/family/img7.png"]
+const buildingsArr = ["./images/buildings/img1.png","./images/buildings/img2.png", "./images/buildings/img3.png", "./images/buildings/img4.png", "./images/buildings/img5.png", "./images/buildings/img6.png", "./images/buildings/img7.png", "./images/buildings/img8.png", "./images/buildings/img9.png", "./images/buildings/img10.png", "./images/buildings/img11.png", "./images/buildings/img12.png", "./images/buildings/img13.png", "./images/buildings/img14.png", "./images/buildings/img15.png", "./images/buildings/img16.png", "./images/buildings/img17.png", "./images/buildings/img18.png", "./images/buildings/img19.png", "./images/buildings/img20.png", "./images/buildings/img21.png", "./images/buildings/img22.png", "./images/buildings/img23.png", "./images/buildings/img24.png", "./images/buildings/img25.png", "./images/buildings/img26.png", "./images/buildings/img27.png", "./images/buildings/img28.png", "./images/buildings/img29.png"]
+
 
 const feelingsBtn = document.getElementById("feelings")
 const weatherBtn = document.getElementById("weather")
@@ -56,6 +58,7 @@ const timesofdayBtn = document.getElementById("timesofday")
 const daysBtn = document.getElementById("days")
 const countriesBtn = document.getElementById("countries")
 const familyBtn = document.getElementById("family")
+const buildingsBtn = document.getElementById("buildings")
 
 const quickStart = document.getElementById("quick-start")
 const clearBtn = document.getElementById("clear")
@@ -84,7 +87,7 @@ timesofdayBtn.addEventListener("click",() => beginSelection(timesofdayArr))
 daysBtn.addEventListener("click",() => beginSelection(daysArr))
 countriesBtn.addEventListener("click",() => beginSelection(countriesArr))
 familyBtn.addEventListener("click",() => beginSelection(familyArr))
-
+buildingsBtn.addEventListener("click",() => beginSelection(buildingsArr))
 
 function beginSelection(arr) {
     if (!selectionOpen) {
