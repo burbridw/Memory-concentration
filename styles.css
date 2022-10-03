@@ -34,7 +34,21 @@ img {
 #game-buttons button:nth-of-type(3) {
   width: 50%;
 }
-
+@media (max-width:1200px) {
+  #game-buttons button {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width:840px) {
+  #game-buttons button {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width:680px) {
+  #game-buttons button {
+    font-size: 0.8rem;
+  }
+}
 #topic-buttons {
   display: flex;
   flex-direction: row;
@@ -95,7 +109,11 @@ img {
   font-size: 1.5rem;
   transition: all 0.2s ease-in-out;
 }
-
+@media (max-width: 800px) {
+  .inner-btn-menu button {
+    font-size: 1rem;
+  }
+}
 .inner-btn-menu button:hover {
   background-color: yellow;
 }

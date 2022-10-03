@@ -175,7 +175,7 @@ function renderSelect(targetDiv, arr){
     gameBtnDisplay.className = "hide-me"
     topicBtnDisplay.className = "hide-me"
     let currentDiv = document.getElementById(targetDiv)
-    currentDiv.innerHTML = `<div class="inner-btn-menu"><button id="selectall" onClick="selectAll()">Select All</button><button id="clearselection" onClick="selectClear()">Clear Selection</button><button id="closewindow" onClick="passSelect()">Confirm Selection and Go Back</button></div>`
+    currentDiv.innerHTML = `<div class="inner-btn-menu"><button id="selectall" onClick="selectAll()">All</button><button id="clearselection" onClick="selectClear()">Clear</button><button id="closewindow" onClick="passSelect()">Confirm and Go Back</button></div>`
     for ( let i = 0; i < arr.length; i++) {
     currentDiv.innerHTML += `<div class="img-box"><img class="select-img unselected" src="${arr[i]}"></div>`
     imgList = document.querySelectorAll(`.select-img`)
