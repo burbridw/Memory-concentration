@@ -56,7 +56,7 @@ const conditionsArr = ["./images/conditions/img1.png","./images/conditions/img2.
 const descriptionsArr = ["./images/descriptions/img1.png","./images/descriptions/img2.png", "./images/descriptions/img3.png", "./images/descriptions/img4.png", "./images/descriptions/img5.png", "./images/descriptions/img6.png", "./images/descriptions/img7.png", "./images/descriptions/img8.png", "./images/descriptions/img9.png", "./images/descriptions/img10.png", "./images/descriptions/img11.png", "./images/descriptions/img12.png", "./images/descriptions/img13.png", "./images/descriptions/img14.png", "./images/descriptions/img15.png"]
 const jobsArr = ["./images/jobs/img1.png","./images/jobs/img2.png", "./images/jobs/img3.png", "./images/jobs/img4.png", "./images/jobs/img5.png", "./images/jobs/img6.png", "./images/jobs/img7.png", "./images/jobs/img8.png", "./images/jobs/img9.png", "./images/jobs/img10.png", "./images/jobs/img11.png", "./images/jobs/img12.png", "./images/jobs/img13.png", "./images/jobs/img14.png", "./images/jobs/img15.png", "./images/jobs/img16.png", "./images/jobs/img17.png", "./images/jobs/img18.png", "./images/jobs/img19.png", "./images/jobs/img20.png", "./images/jobs/img21.png", "./images/jobs/img22.png", "./images/jobs/img23.png", "./images/jobs/img24.png", "./images/jobs/img25.png"]
 const clubactivitiesArr = ["./images/clubactivities/img1.png","./images/clubactivities/img2.png", "./images/clubactivities/img3.png", "./images/clubactivities/img4.png", "./images/clubactivities/img5.png", "./images/clubactivities/img6.png", "./images/clubactivities/img7.png", "./images/clubactivities/img8.png", "./images/clubactivities/img9.png", "./images/clubactivities/img10.png", "./images/clubactivities/img11.png", "./images/clubactivities/img12.png", "./images/clubactivities/img13.png", "./images/clubactivities/img14.png", "./images/clubactivities/img15.png", "./images/clubactivities/img16.png", "./images/clubactivities/img17.png", "./images/clubactivities/img18.png"]
-
+const christmasArr = ["./images/christmas/img1.png","./images/christmas/img2.png", "./images/christmas/img3.png", "./images/christmas/img4.png", "./images/christmas/img5.png", "./images/christmas/img6.png", "./images/christmas/img7.png", "./images/christmas/img8.png", "./images/christmas/img9.png", "./images/christmas/img10.png", "./images/christmas/img11.png", "./images/christmas/img12.png", "./images/christmas/img13.png", "./images/christmas/img14.png", "./images/christmas/img15.png", "./images/christmas/img16.png", "./images/christmas/img17.png", "./images/christmas/img18.png", "./images/christmas/img19.png", "./images/christmas/img20.png"]
 
 const feelingsBtn = document.getElementById("feelings")
 const weatherBtn = document.getElementById("weather")
@@ -105,6 +105,7 @@ const conditionsBtn = document.getElementById("conditions")
 const descriptionsBtn = document.getElementById("descriptions")
 const jobsBtn = document.getElementById("jobs")
 const clubactivitiesBtn = document.getElementById("clubactivities")
+const christmasBtn = document.getElementById("christmas")
 
 const quickStart = document.getElementById("quick-start")
 const clearBtn = document.getElementById("clear")
@@ -157,6 +158,7 @@ conditionsBtn.addEventListener("click",() => beginSelection(conditionsArr))
 descriptionsBtn.addEventListener("click",() => beginSelection(descriptionsArr))
 jobsBtn.addEventListener("click",() => beginSelection(jobsArr))
 clubactivitiesBtn.addEventListener("click",() => beginSelection(clubactivitiesArr))
+christmasBtn.addEventListener("click",() => beginSelection(christmasArr))
 
 function beginSelection(arr) {
     if (!selectionOpen) {
@@ -252,7 +254,7 @@ renderBtn.addEventListener("click", function(){
 })
 
 function renderGame(targetDiv, arr){
-    displayArr = arr.sort( () => { return 0.5 - Math.random() } )
+    displayArr = arr.slice(0,arr.length).sort( () => { return 0.5 - Math.random() } )
     displayArr = displayArr.slice(0, 6)
     displayArr = displayArr.concat(displayArr)
     displayArr = displayArr.sort( () => { return 0.5 - Math.random() } )
