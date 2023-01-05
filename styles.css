@@ -9,7 +9,7 @@
 :root {
   --card-shadow: 1px 1px 3px 1px black;
   --button-col: lightgreen;
-  --large-text: clamp(1rem, 4vh, 2.5rem);
+  --large-text: clamp(0.5rem, 3vmin, 2rem);
   --hover-color: palegoldenrod;
 }
 
@@ -40,6 +40,7 @@ body {
     font-size: var(--large-text);
     transition: all 0.2s ease-in-out;
     font-weight: bold;
+    overflow: hidden;
 }
 .game-button:nth-of-type(3),.inner-button:nth-of-type(3) {
     width: 40%;
@@ -66,12 +67,6 @@ body {
     border: 4px solid silver;
     font-size: var(--large-text);
     font-weight: bold;
-}
-
-@media (orientation: portrait) {
-    .game-button,.inner-button,.topic-button {
-        font-size: 1rem;
-    }
 }
 
 .game-button:hover,.inner-button:hover,.topic-button:hover {
@@ -140,6 +135,7 @@ body {
     margin: 0 auto;
     align-content: center;
     justify-content: space-around;
+    overflow: hidden;
 }
 
 .flip-card { 
