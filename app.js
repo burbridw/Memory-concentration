@@ -1,12 +1,15 @@
 let activeArr = []
 let selectArr = []
 let displayArr = []
-let goBackBtn = ""
 let imgList = ""
 let selectionOpen = false
 
-const gameBtnDisplay = document.getElementById("game-btn-container")
-const topicBtnDisplay = document.getElementById("topic-btn-container")
+const gameRootMenu = document.querySelector(".game-root-menu")
+const gameBtnContainer = document.querySelector(".game-btn-container")
+const topicBtnContainer = document.querySelector(".topic-btn-container")
+const selectContainer = document.querySelector(".select-container")
+const selectBtnGrid = document.querySelector(".select-btn-grid")
+const cardsContainer = document.querySelector(".cards-container")
 
 const selectObj = {
     "feelings" : ["./images/feelings/img1.png","./images/feelings/img2.png", "./images/feelings/img3.png", "./images/feelings/img4.png", "./images/feelings/img5.png", "./images/feelings/img6.png", "./images/feelings/img7.png", "./images/feelings/img8.png", "./images/feelings/img9.png","./images/feelings/img10.png"], 
@@ -62,10 +65,21 @@ const selectObj = {
     "goodmorning" : ["./images/goodmorning/img1.png","./images/goodmorning/img2.png", "./images/goodmorning/img3.png", "./images/goodmorning/img4.png", "./images/goodmorning/img5.png", "./images/goodmorning/img6.png", "./images/goodmorning/img7.png", "./images/goodmorning/img8.png", "./images/goodmorning/img9.png", "./images/goodmorning/img10.png", "./images/goodmorning/img11.png", "./images/goodmorning/img12.png", "./images/goodmorning/img13.png", "./images/goodmorning/img14.png", "./images/goodmorning/img15.png", "./images/goodmorning/img16.png", "./images/goodmorning/img17.png", "./images/goodmorning/img18.png", "./images/goodmorning/img19.png"], 
 }
 
+function preload() {
+    const preLoad = Object.values( selectObj ).flat()
+    for ( let i = 0; i < preLoad.length; i++ ) {
+        document.querySelector(".preload").innerHTML += `<img src="${preLoad[i]}">`
+    }
+}
+preload()
+
 const quickStart = document.getElementById("quick-start")
 const clearBtn = document.getElementById("clear")
 const renderBtn = document.getElementById("render-btn")
 const allSelectButtons = document.querySelectorAll(".imageSelect")
+const innerBtnAll = document.getElementById("selectall")
+const innerBtnClear = document.getElementById("clearselection")
+const innerBtnConfirm = document.getElementById("closewindow")
 
 allSelectButtons.forEach( (x) => {
     x.addEventListener("click",()=>{
@@ -77,7 +91,7 @@ allSelectButtons.forEach( (x) => {
 function beginSelection(arr) {
     if (!selectionOpen) {
         reSelect(arr)
-        renderSelect("select-container", arr)
+        renderSelect(arr)
         selectionOpen = true
     }
 }
@@ -87,14 +101,18 @@ function reSelect(arr) {
     activeArr = activeArr.filter( (x) => !arr.includes(x) )
 }
 
-function renderSelect(targetDiv, arr){
-    gameBtnDisplay.className = "hide-me"
-    topicBtnDisplay.className = "hide-me"
-    let currentDiv = document.getElementById(targetDiv)
-    currentDiv.innerHTML = `<div class="inner-btn-menu"><button id="selectall" onClick="selectAll()">All</button><button id="clearselection" onClick="selectClear()">Clear</button><button id="closewindow" onClick="passSelect()">Confirm and Go Back</button></div>`
+function renderSelect(arr){
+    gameRootMenu.classList.add("hide-me")
+    selectContainer.classList.remove("hide-me")
+    selectBtnGrid.innerHTML = ""
     for ( let i = 0; i < arr.length; i++) {
-    currentDiv.innerHTML += `<div class="img-box"><img class="select-img unselected" src="${arr[i]}"></div>`
-    imgList = document.querySelectorAll(`.select-img`)
+        selectBtnGrid.innerHTML += `
+        <div class="select-img-box">
+            <img class="select-img unselected" src="${arr[i]}">
+        </div>
+        `
+    }
+    imgList = document.querySelectorAll(".select-img")
     imgList.forEach( (img) => {
         let reselectImg = img.getAttribute("src")
         if (selectArr.includes(reselectImg) ) {
@@ -117,12 +135,11 @@ function renderSelect(targetDiv, arr){
             }
         }) 
     })
-    } 
 }
 
 function selectAll() {
     selectArr = []
-    imgList = document.querySelectorAll(`.select-img`)
+    imgList = document.querySelectorAll(".select-img")
     imgList.forEach( (img) => {
         let currentImg = img.getAttribute("src")
         selectArr.push(currentImg)
@@ -130,54 +147,50 @@ function selectAll() {
         img.classList.remove("unselected")
     })
 }
-
 function selectClear() {
     selectArr = []
-    imgList = document.querySelectorAll(`.select-img`)
+    imgList = document.querySelectorAll(".select-img")
     imgList.forEach( (img) => {
         let currentImg = img.getAttribute("src")
         img.classList.remove("selected")
         img.classList.add("unselected")
     })
 }
-
 function passSelect() {
     activeArr = activeArr.concat(selectArr)
     selectArr = []
-    let currenterDiv = document.getElementById("select-container")
-    currenterDiv.innerHTML = ""
+    selectBtnGrid.innerHTML = ""
     selectionOpen = false
-    gameBtnDisplay.className = ""
-    topicBtnDisplay.className = ""
-    
+    gameRootMenu.classList.remove("hide-me")
+    selectContainer.classList.add("hide-me")
 }
 
 quickStart.addEventListener("click",function(){
     quickstart()
 })
-
 function quickstart() {
-    activeArr = Array.from( Object.values( selectObj ).flat() )
-    renderGame("cards-container", activeArr)
+    activeArr = Object.values( selectObj ).flat()
+    renderGame(activeArr)
 }
-
 renderBtn.addEventListener("click", function(){
     if (activeArr.length >= 1) {
-    renderGame("cards-container", activeArr)
+    renderGame(activeArr)
     }
 })
+innerBtnAll.addEventListener("click",selectAll)
+innerBtnClear.addEventListener("click",selectClear)
+innerBtnConfirm.addEventListener("click",passSelect)
 
-function renderGame(targetDiv, arr){
+function renderGame(arr){
     displayArr = arr.slice(0,arr.length).sort( () => { return 0.5 - Math.random() } )
     displayArr = displayArr.slice(0, 6)
     displayArr = displayArr.concat(displayArr)
     displayArr = displayArr.sort( () => { return 0.5 - Math.random() } )
-    let currentDiv = document.getElementById(targetDiv)
-    currentDiv.innerHTML = ""
-    topicBtnDisplay.className ="hide-me"
-    gameBtnDisplay.className = "conceal-menu"
+    cardsContainer.innerHTML = ""
+    topicBtnContainer.classList.add("hide-me")
+    gameBtnContainer.classList.add("conceal-menu")
     for ( let i = 0; i < displayArr.length; i++) {
-      currentDiv.innerHTML += `
+      cardsContainer.innerHTML += `
       <div class="flip-card">
             <div class="flip-card-inner unflipped">
             <div class="flip-card-front">
@@ -189,6 +202,7 @@ function renderGame(targetDiv, arr){
           </div>
         </div>`
     }
+    cardsContainer.classList.remove("hide-me")
     let reverser = document.querySelectorAll(".flip-card-inner")
     reverser.forEach( (card) => {
         card.addEventListener("click", function(){
@@ -204,19 +218,26 @@ function renderGame(targetDiv, arr){
         })
     })
 }
-
 clearBtn.addEventListener("click",function(){
-    let currentDiv = document.getElementById("cards-container")
-    currentDiv.innerHTML = ""
-    let currenterDiv = document.getElementById("select-container")
-    currenterDiv.innerHTML = ""
+    cardsContainer.innerHTML = ""
+    if ( !cardsContainer.classList.contains("hide-me") ) {
+        cardsContainer.classList.add("hide-me")
+    }
+    selectBtnGrid.innerHTML = ""
     activeArr = []
     displayArr = []
     selectArr = []
-    topicBtnDisplay.className = ""
-    gameBtnDisplay.classList.remove("conceal-menu")
-    document.querySelectorAll(`.toggleOn`).forEach( (x) => {
-    x.className = "toggleOff"
+    if ( topicBtnContainer.classList.contains("hide-me") ) {
+        topicBtnContainer.classList.remove("hide-me")
+    }
+    if ( gameBtnContainer.classList.contains("conceal-menu") ) {
+        gameBtnContainer.classList.remove("conceal-menu")
+    }
+    if ( gameRootMenu.classList.contains("hide-me") ) {
+        gameRootMenu.classList.remove("hide-me")
+    }
+    document.querySelectorAll(".toggleOn").forEach( (x) => {
+        x.classList.remove("toggleOn")
+        x.classList.add("toggleOff")
     })
 })
-

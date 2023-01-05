@@ -1,143 +1,143 @@
 * {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 :root {
-  --card-shadow: 1px 1px 2px 1px black;
+  --card-shadow: 1px 1px 3px 1px black;
   --button-col: lightgreen;
+  --large-text: clamp(1rem, 4vh, 2.5rem);
+  --hover-color: palegoldenrod;
 }
 
 body {
     background: lightblue;
 }
 
-img {
-  height: 100%;
-  overflow: hidden;
+.game-root-menu {
+    height: 98%;
+    width: 100%;
 }
 
-#game-buttons {
-  border-bottom: 3px solid black;
-  padding-bottom: 3px;
-  display: flex;
-  justify-content: space-around;
-}
-
-#game-buttons button {
-  width: 22%;
-  background-color: var(--button-col);
-  border-radius: 5px;
-  box-shadow: var(--card-shadow);
-  font-family: Tahoma, sans-serif;
-  font-size: 2.5rem;
-  transition: all 0.2s ease-in-out;
-}
-#game-buttons button:hover {
-  background-color: yellow;
-}
-
-#game-buttons button:nth-of-type(3) {
-  width: 50%;
-}
-@media (max-width:1200px) {
-  #game-buttons button {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width:840px) {
-  #game-buttons button {
-    font-size: 1.2rem;
-  }
-}
-@media (max-width:680px) {
-  #game-buttons button {
-    font-size: 0.8rem;
-  }
-}
-#topic-buttons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 5px;
-  margin-top: 15px;
-}
-#topic-buttons button {
-  width: 100%;
-  max-width: 240px;
-  height: 3rem;
-  background-color: var(--button-col);
-  border-radius: 5px;
-  box-shadow: var(--card-shadow);
-  font-family: Tahoma, sans-serif;
-  font-size: 2rem;
-  transition: all 0.2s ease-in-out;
-}
-#topic-buttons button:hover {
-  background-color: yellow;
-}
-
-.inner-btn-menu {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-#select-container {
+.game-btn-container,.inner-btn-container {
+    margin: 0 auto;
+    height: 8vh;
+    width: 98%;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 0.5vh;
+    border-bottom: 2px solid black;
+}
+.game-button,.inner-button {
+    width: 25%;
+    background-color: var(--button-col);
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+    font-size: var(--large-text);
+    transition: all 0.2s ease-in-out;
+    font-weight: bold;
+}
+.game-button:nth-of-type(3),.inner-button:nth-of-type(3) {
+    width: 40%;
+}
+
+.topic-btn-container,.select-btn-container {
+    margin: 0 auto;
+    padding-top: 0.5vh;
+    height: 90vh;
+    width: 98%;
+    display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 2px;
-    align-content: center;
-    justify-content: center;
-    gap: 6px;
 }
-#select-container .img-box {
-    display: flex;
-    width: 23%;
-    max-height: 31vh;
+
+.topic-button {
+    height: 8vh;
+    min-height: 40px;
+    width: 240px;
+    margin-bottom: 2vh;
+    box-shadow: var(--card-shadow);
+    background-color: var(--button-col);
+    border-radius: 10px;
+    border: 4px solid silver;
+    font-size: var(--large-text);
+    font-weight: bold;
+}
+
+@media (orientation: portrait) {
+    .game-button,.inner-button,.topic-button {
+        font-size: 1rem;
+    }
+}
+
+.game-button:hover,.inner-button:hover,.topic-button:hover {
+    background-color: var(--hover-color);
+}
+
+.select-container {
+    margin: 0 auto;
+    width: 98%;
+    height: 100%;
+}   
+
+.select-btn-grid {
+    margin: 0 auto;
+    width: 98%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(9,1fr);
+    gap: 1vh;
+}
+
+.select-img-box {
+    padding: 10px;
+    height: 30vmin;
+    width: 45vmin;
+    max-width: 23vw;
     box-shadow: var(--card-shadow);
     background-color: lightgray;
+    border-radius: 15px;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+.select-img {
+    width: 35vmin;
+    max-width: 20vmax;
+    height: auto;
+    max-height: 29vmin;
     border-radius: 15px;
-    padding-top: 2px;
-    padding-bottom: 2px;
 }
 
-.inner-btn-menu button {
-  height: 2rem;
-  width: 22%;
-  background-color: var(--button-col);
-  box-shadow: var(--card-shadow);
-  border-radius: 5px;
-  font-family: Tahoma, sans-serif;
-  font-size: 1.5rem;
-  transition: all 0.2s ease-in-out;
-}
-@media (max-width: 800px) {
-  .inner-btn-menu button {
-    font-size: 1rem;
-  }
-}
-.inner-btn-menu button:hover {
-  background-color: yellow;
-}
-
-.inner-btn-menu button:nth-of-type(3) {
-  width: 50%;
+@media (orientation: portrait) {
+    .select-btn-grid {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(18,1fr);
+    }
+    .select-img-box {
+        height: 40vmin;
+        width: 50vmin;
+        max-width: 40vw;
+    }
 }
 
 .selected {
-  box-shadow: 0 0 15px red;
+  box-shadow: 0 0 15px 3px red;
   border-radius: 15px;
 }
 
-#cards-container {
-  display: flex;
+.cards-container {
+    height: 96vh;
+    width: 98vw;
+    display: flex;
     flex-wrap: wrap;
     padding: 0;
     padding-top: 15px;
-    margin: 0;
+    margin: 0 auto;
     align-content: center;
     justify-content: space-around;
 }
@@ -149,6 +149,13 @@ img {
   height: 30vh;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 
+}
+
+@media (orientation: portrait) {
+  .flip-card {
+    width: 40vw;
+    height: 15vh;
+  }
 }
 
 .flip-card-inner {
@@ -194,13 +201,17 @@ img {
 
 .hide-me {
   display: none;
+  z-index: -20;
 }
 
 .conceal-menu {
   overflow: hidden;
-  height: 20px;
+  height: 3vh;
 }
 
 .conceal-menu:hover {
-  height: 100%;
+  height: 8vh;
+}
+.preload {
+  display: none;
 }
