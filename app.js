@@ -71,7 +71,7 @@ function preload() {
         document.querySelector(".preload").innerHTML += `<img src="${preLoad[i]}">`
     }
 }
-preload()
+//preload()
 
 const quickStart = document.getElementById("quick-start")
 const clearBtn = document.getElementById("clear")
